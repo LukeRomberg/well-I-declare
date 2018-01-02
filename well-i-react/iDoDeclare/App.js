@@ -39,11 +39,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+
     backgroundColor: 'purple',
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 50,
     textAlign: 'center',
     margin: 10,
   },
