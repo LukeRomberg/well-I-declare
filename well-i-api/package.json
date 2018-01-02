@@ -1,14 +1,27 @@
 {
   "name": "well-i-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Southern sayings API",
   "main": "app.js",
-  "dependencies": {},
-  "devDependencies": {},
   "scripts": {
-		"start": "node ./app.js",
+    "start": "node ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ember-sox/well-I-declare.git"
+  },
+  "author": "Luke Romberg and Jake Robbins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ember-sox/well-I-declare/issues"
+  },
+  "homepage": "https://github.com/ember-sox/well-I-declare#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "knex": "^0.14.2",
+    "pg": "^7.4.0"
+  }
 }
