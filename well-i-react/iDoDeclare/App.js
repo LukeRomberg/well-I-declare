@@ -11,20 +11,44 @@ import {
   Text,
 	Button,
 	Alert,
-  View
+  View,
 } from 'react-native';
 
 
 export default class App extends Component<{}> {
+	constructor(props) {
+    super(props);
+    this.state = {
+				phrase: 'test',
+				description: 'test'
+		};
+  }
 	_onPressButton() {
-	Alert.alert('You tapped the button!')
+	getData();
+	this.setState({
+		phrase: phrase
+	})
+};
+
+getData = function(){
+	fetch('https://calm-everglades-65247.herokuapp.com/random')
+	.then(function(phrase){
+		return phrase.json()
+	})
 }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Wecome to I Declare!
         </Text>
+				<Text>
+				{this.state.phrase}
+				</Text>
+				<Text>
+				{this.state.description}
+				</Text>
 				<View style={styles.buttonContainer}>
            <Button
              onPress={this._onPressButton}
