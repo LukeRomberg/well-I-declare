@@ -12,15 +12,18 @@ import {
   Button,
   Alert,
   View,
-  ScrollView,
+  Image,
+  ScrollView
 } from 'react-native';
+
+const remote = 'https://cdn.pixabay.com/photo/2016/09/19/16/17/colorado-1680631_1280.jpg';
 
 export default class App extends Component < {} > {
   constructor(props) {
     super(props);
     this.state = {
       phrase: 'Howdy!',
-      description: 'Welcome to I Declare! If you need any southern style colloqualisms, feel free to click that button down yander. Don\'t click it too fast, ya hear? If you do, the app will be madder than a wet hen and toss some errors your way. poupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiupoupoiupoiupoiu'
+      description: 'Welcome to I Declare! If you need any southern style colloqualisms, feel free to click that button down yander. Don\'t click it too fast, ya hear? If you do, the app will be madder than a wet hen and toss some errors your way.'
     };
   }
   async _onPressButton() {
@@ -30,24 +33,81 @@ export default class App extends Component < {} > {
   };
 
   render() {
-    return (<View style={styles.container}>
-      <Text style={styles.welcome}>
-        I Declare!
-      </Text>
-      <Text style={styles.saying}>
-        {this.state.phrase}
-      </Text>
-      <ScrollView style={styles.scroll}>
-        <Text style={styles.description}>
-          {this.state.description}
-        </Text>
-      </ScrollView>
-      <View style={styles.button} onPress={this._onPressButton.bind(this)}>
-        <Text style={styles.text} onPress={this._onPressButton.bind(this)}>
-        Let's get it
-      </Text>
+    const resizeMode = 'cover';
+    return (
+    //trying
+    <View style={{
+        flex: 1,
+        backgroundColor: '#eee'
+      }}>
+      <View style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+        }}>
+        <Image style={{
+            flex: 1,
+            resizeMode,
+          }} source={{
+            uri: remote
+          }}/>
+      </View>
+      <View style={{
+          flex: 1,
+          backgroundColor: 'transparent',
+          justifyContent: 'center'
+        }}>
+        <View style={styles.container}>
+          <Text style={styles.welcome}>
+            I Declare!
+          </Text>
+          <Text style={styles.saying}>
+            {this.state.phrase}
+          </Text>
+          <ScrollView style={styles.scroll}>
+            <Text style={styles.description}>
+              {this.state.description}
+            </Text>
+          </ScrollView>
+          <View style={styles.button} onPress={this._onPressButton.bind(this)}>
+            <Text style={styles.text} onPress={this._onPressButton.bind(this)}>
+              Let's get it
+            </Text>
+          </View>
+        </View>
+      </View>
     </View>
-    </View>);
+    //done trying
+
+    // <View>
+    //   <Image style={{
+    //       flex: 1,
+    //       resizeMode
+    //     }} source={{
+    //       uri: remote
+    //     }}/>
+    // </View>
+    // <View style={styles.container}>
+    //   <Text style={styles.welcome}>
+    //     I Declare!
+    //   </Text>
+    //   <Text style={styles.saying}>
+    //     {this.state.phrase}
+    //   </Text>
+    //   <ScrollView style={styles.scroll}>
+    //     <Text style={styles.description}>
+    //       {this.state.description}
+    //     </Text>
+    //   </ScrollView>
+    //   <View style={styles.button} onPress={this._onPressButton.bind(this)}>
+    //     <Text style={styles.text} onPress={this._onPressButton.bind(this)}>
+    //       Let's get it
+    //     </Text>
+    //   </View>
+    // </View>
+  );
   }
 }
 
@@ -55,11 +115,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'grey'
+    backgroundColor: 'transparent'
   },
   welcome: {
     textShadowColor: 'white',
-    textShadowOffset: {width: 2, height: 2},
+    textShadowOffset: {
+      width: 2,
+      height: 2
+    },
     textShadowRadius: 5,
     fontFamily: 'Snell Roundhand',
     fontStyle: 'italic',
@@ -68,34 +131,40 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 20,
     width: '100%',
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
-  saying:{
+  saying: {
     textShadowColor: 'black',
-    textShadowOffset: {width: 2, height: 2},
+    textShadowOffset: {
+      width: 2,
+      height: 2
+    },
     textShadowRadius: 5,
     fontFamily: 'Didot',
     fontWeight: 'bold',
     padding: 10,
-    fontSize: 30,
+    fontSize: 25,
     position: 'absolute',
     top: 100,
     width: '100%',
     textAlign: 'center',
     color: 'white',
-    overflow: 'scroll',
+    overflow: 'scroll'
   },
-  description:{
+  description: {
     textShadowColor: 'black',
-    textShadowOffset: {width: 2, height: 2},
+    textShadowOffset: {
+      width: 2,
+      height: 2
+    },
     textShadowRadius: 5,
     fontFamily: 'Didot',
     margin: 20,
     fontSize: 25,
     textAlign: 'center',
-    color: 'white',
+    color: 'white'
   },
-  button:{
+  button: {
     borderWidth: 10,
     borderColor: 'white',
     borderRadius: 20,
@@ -103,18 +172,22 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 40,
   },
-  text:{
+  text: {
+    fontFamily: 'Didot',
     textShadowColor: 'grey',
-    textShadowOffset: {width: 2, height: 2},
+    textShadowOffset: {
+      width: 2,
+      height: 2
+    },
     textShadowRadius: 5,
     padding: 10,
     textAlign: 'center',
     fontSize: 25,
-    backgroundColor: 'white',
+    backgroundColor: 'white'
   },
-  scroll:{
+  scroll: {
     position: 'absolute',
     top: 165,
-    height: 375,
+    height: 375
   }
 });
